@@ -32,10 +32,10 @@ def run_loop(url, only_required=True, min_delay=10, max_delay=40, max_runs=None)
         # sleep in small chunks so SIGINT can be handled quicker
         slept = 0.0
         while slept < delay and not STOP:
-            time.sleep(min(1.0, delay - slept))
-            slept += min(1.0, delay - slept)
+            time.sleep(min(0.2, delay - slept))
+            slept += min(0.2, delay - slept)
     print("Loop stopped. Exiting.")
 
 if __name__ == '__main__':
-    url = "https://docs.google.com/forms/d/e/1FAIpQLSf9gNO4XGdbHaPaziJKFpaJtv3XrAUVrRsZaDjowmu1takmIg/viewform"
+    url = "https://docs.google.com/forms/d/e/1FAIpQLScFdZEjMQBYtwEcOQ7OkpQUG3bbz6GC5sbo9p5kJLzJew-DPQ/viewform"
     run_loop(url, only_required=True, min_delay=15, max_delay=40, max_runs=None)
